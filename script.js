@@ -23,22 +23,42 @@ for (var i = 0; i < timeArray.length; i++) {
     DivRow.append(Label)
 
     var textArea = $("<textarea>");
-    textArea.addClass("form-control col-sm-10 float-left row='3'");
+    textArea.addClass("form-control col-sm-10 float-left description row='3' ");
+    textArea.attr("id", "area" )
     textArea.attr("name", Times)
-    var info = '.form-control'.value 
+    textArea.val(localStorage.getItem(Times))
     DivRow.append(textArea);
-    console.log(info)
+
     
     var saveBtn = $("<button>");
     saveBtn.addClass("btn col-sm-1 btn-outline-primary float-left");
     saveBtn.html("Save");
     DivRow.append(saveBtn);
 
-     $(".btn").click(function() {
-    event.preventDefault()
-    localStorage.setItem(this.name, info)
-     });
-     
+     if (window.localStorage){
+         $(".description").keyup(function() {
+             event.preventDefault()
+             localStorage.setItem(this.name, this.value);}
+        )};  
+    
+    var currentHour = moment().format('HH');
+    console.log(currentHour)
+    var hours = parseFloat(i) + 9
+
+    console.log(hours)
+
+    if (currentHour > hours){
+        DivRow.addClass("past")
+        $('.description').prop("disabled", true)
+        $('.btn').prop("disabled", true)
+        
+    }
+    else if (currentHour < hours) {
+        DivRow.addClass("future")
+    }
+    else if (currentHour = hours) { 
+        DivRow.addClass("present")
+    }
 }}
 
 
