@@ -59,8 +59,15 @@ for (var i = 0; i < timeArray.length; i++) {
     else if (currentHour = hours) { 
         DivRow.addClass("present")
     }
+    reset()
 }}
 
+function reset() {
+    currentHour = moment().format('HH');
+     if (currentHour === "23") {
+    localStorage.clear()}
+    console.log(currentHour)
+    }
 
 $(document).ready(function() {
     displayBlocks();
