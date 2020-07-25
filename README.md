@@ -1,1 +1,2 @@
 # DayPlanner
+I created a simple calendar application that allows the user to save events for each hour of the day. This app will be able to run in the browser and feature dynamically updated HTML and CSS powered by jQuery. The users will be able to add important events to a daily planner so that they can manage my time effectively. When the user open the planner the current day is displayed on the time of the page. The users is able to click on the timeblocks and input any detail. The event is saved in local storage and the event presists.
